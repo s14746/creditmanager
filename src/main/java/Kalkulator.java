@@ -7,21 +7,19 @@ public class Kalkulator {
         if (formularz.typRaty == TypRaty.STALA) {
             return wyliczRatyStale(formularz);
         }
-
         return wyliczRatyMalejace(formularz);
     }
 
     private List<RataKredytu> wyliczRatyMalejace(Formularz formularz) {
         List<RataKredytu> rataKredytuList = new ArrayList<>();
-
-        double poprzeniaKwotaKapitalowa = 0;
+        double poprzedniaKwotaKapitalowa = 0;
 
         for (int i = 1; i <= formularz.iloscRat; i++) {
             double kwotaKapitalowa = formularz.kwotaKredytu / formularz.iloscRat;
-            double kwotaOdsetkowa = (formularz.kwotaKredytu - poprzeniaKwotaKapitalowa) * ((formularz.oprocentowanie / 100) / (formularz.iloscRat / 12));
-            double rata = kwotaKapitalowa + kwotaOdsetkowa;
+            double kwotaOdsetkowa = (formularz.kwotaKredytu - poprzedniaKwotaKapitalowa) * ((formularz.oprocentowanie / 100) / (formularz.iloscRat / 12));
+            double rata = kwotaKapitalowa + kwotaOdsetkowa + formularz.oplataStala;
 
-            poprzeniaKwotaKapitalowa = kwotaKapitalowa;
+            poprzedniaKwotaKapitalowa = poprzedniaKwotaKapitalowa + kwotaKapitalowa;
 
             RataKredytu rataKredytu = new RataKredytu();
             rataKredytu.numerRaty = i;
@@ -31,7 +29,6 @@ public class Kalkulator {
             rataKredytu.calkowitaKwotaRaty = rata;
             rataKredytuList.add(rataKredytu);
         }
-
         return rataKredytuList;
     }
 
@@ -47,7 +44,6 @@ public class Kalkulator {
             rataKredytu.calkowitaKwotaRaty = rataKredytu.wyliczKwoteRaty();
             rataKredytuList.add(rataKredytu);
         }
-
         return rataKredytuList;
     }
 }
