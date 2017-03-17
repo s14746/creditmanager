@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pl">
     <head>
@@ -7,14 +7,21 @@
         <title>Harmonogram spłat</title>
     </head>
     <body>
-         <table>
-         <c:forEach items="${ratyKredytu}" var="rataKredytu">
+         <table align="center">
+         <tr>
+         <th>Numer raty</th>
+         <th>Kwota kapitału</th>
+         <th>Kwota odsetek</th>
+         <th>Opłata stała</th>
+         <th>Całkowita kwota raty</th>
+         </tr>
+         <c:forEach items="${raty}" var="rata">
              <tr>
-                 <td>Numer raty: <c:out value="${rataKredytu.numerRaty}"/></td>
-                 <td>Kwota kapitału: <c:out value="${rataKredytu.kwotaKapitalu}"/></td>
-                 <td>Kwota odsetek: <c:out value="${rataKredytu.kwotaOdsetek}"/></td>
-                 <td>Opłata stała: <c:out value="${rataKredytu.oplatyStale}"/></td>
-                 <td>Całkowita kwota raty: <c:out value="${rataKredytu.calkowitaKwotaRaty}"/></td>
+                 <td  align="center"><c:out value="${rata.numerRaty}"/></td>
+                 <td  align="center"><c:out value="${rata.kwotaKapitalu}"/></td>
+                 <td  align="center"><c:out value="${rata.kwotaOdsetek}"/></td>
+                 <td  align="center"><c:out value="${rata.oplatyStale}"/></td>
+                 <td  align="center"><c:out value="${rata.calkowitaKwotaRaty}"/></td>
              </tr>
          </c:forEach>
          </table>
