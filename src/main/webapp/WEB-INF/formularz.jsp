@@ -6,21 +6,21 @@
         <h2>Formularz kredytowy</h2>
     </head>
     <body>
-         <form method="POST" action="/harmonogram">
+         <form method="POST" action="/harmonogram" >
          <table>
          <tr>
             <td>Wnioskowana kwota kredytu</td>
-            <td><input name="kwotaKredytu" type="text" /></td>
+            <td><input name="kwotaKredytu" type="text" required="required" pattern="[0-9]+"/></td>
             </tr>
             <tr>
             <td>Ilość rat</td>
-            <td><input name="iloscRat" type="text" /></td>
+            <td><input name="iloscRat" type="text" required="required" pattern="[0-9]+"/></td>
             </tr>
             <td>Oprocentowanie</td>
-            <td><input name="oprocentowanie" type="text" /></td>
+            <td><input name="oprocentowanie" type="text" required="required" pattern="[0-9.]+"/></td>
             <tr>
             <td>Opłata stała</td>
-            <td><input name="oplataStala" type="text" /></td>
+            <td><input name="oplataStala" type="text" required="required"pattern="[0-9]+"/></td>
             </tr>
             <tr>
             <td>Typ raty</td>
