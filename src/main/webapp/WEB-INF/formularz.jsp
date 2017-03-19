@@ -34,7 +34,10 @@
             </tr>
             <tr>
             <td></td>
-            <td><input type="submit" /></td>
+            <td>
+                <input type="submit" formaction="/harmonogram?rodzajRaportu=HTML" value="Wyślij" />
+                <input type="submit" formaction="/harmonogram?rodzajRaportu=PDF" value="Wygeneruj PDF" />
+            </td>
             </tr>
             </table>
          </form>

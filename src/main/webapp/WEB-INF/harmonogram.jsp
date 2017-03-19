@@ -7,6 +7,8 @@
         <title>Harmonogram spłat</title>
     </head>
     <body>
+         <a href="/">Wróc</a>
+
          <table align="center">
          <tr>
          <th>Numer raty</th>
