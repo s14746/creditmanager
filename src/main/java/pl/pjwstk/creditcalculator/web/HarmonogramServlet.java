@@ -3,7 +3,7 @@ package pl.pjwstk.creditcalculator.web;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import pl.pjwstk.creditcalculator.core.Formularz;
+import pl.pjwstk.creditcalculator.core.DaneDoWyliczeniaRaty;
 import pl.pjwstk.creditcalculator.core.Kalkulator;
 import pl.pjwstk.creditcalculator.core.TypRaty;
 
@@ -25,7 +25,7 @@ public class HarmonogramServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RodzajRaportu rodzajRaportu = RodzajRaportu.valueOf(req.getParameter("rodzajRaportu"));
 
-        Formularz formularz = new Formularz(
+        DaneDoWyliczeniaRaty daneDoWyliczeniaRaty = new DaneDoWyliczeniaRaty(
                 Double.parseDouble(req.getParameter("kwotaKredytu")),
                 Integer.parseInt(req.getParameter("iloscRat")),
                 Double.parseDouble(req.getParameter("oprocentowanie")),
@@ -33,7 +33,7 @@ public class HarmonogramServlet extends HttpServlet {
                 TypRaty.valueOf(req.getParameter("typRaty"))
         );
 
-        List<Rata> raty = kalkulator.calculate(formularz).stream()
+        List<Rata> raty = kalkulator.calculate(daneDoWyliczeniaRaty).stream()
                 .map(Rata::new)
                 .collect(Collectors.toList());
 

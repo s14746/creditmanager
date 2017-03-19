@@ -1,6 +1,6 @@
 package pl.pjwstk.creditcalculator.core;
 
-public class Formularz {
+public class DaneDoWyliczeniaRaty {
 
     private final double kwotaKredytu;
     private final int iloscRat;
@@ -8,7 +8,7 @@ public class Formularz {
     private final double oplataStala;
     private final TypRaty typRaty;
 
-    public Formularz(double kwotaKredytu, int iloscRat, double oprocentowanie, double oplataStala, TypRaty typRaty) {
+    public DaneDoWyliczeniaRaty(double kwotaKredytu, int iloscRat, double oprocentowanie, double oplataStala, TypRaty typRaty) {
         this.kwotaKredytu = kwotaKredytu;
         this.iloscRat = iloscRat;
         this.oprocentowanie = oprocentowanie;

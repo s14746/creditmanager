@@ -1,5 +1,5 @@
 import org.junit.Test;
-import pl.pjwstk.creditcalculator.core.Formularz;
+import pl.pjwstk.creditcalculator.core.DaneDoWyliczeniaRaty;
 import pl.pjwstk.creditcalculator.core.Kalkulator;
 import pl.pjwstk.creditcalculator.core.RataKredytu;
 import pl.pjwstk.creditcalculator.core.TypRaty;
@@ -15,10 +15,10 @@ public class RataStalaTest {
     @Test
     public void kwota1000IloscRat10Oprocentowanie5OplataStala20TypRatyStala() throws Exception {
         // given
-        Formularz formularz = new Formularz(1000,10,5,20, TypRaty.STALA);
+        DaneDoWyliczeniaRaty daneDoWyliczeniaRaty = new DaneDoWyliczeniaRaty(1000,10,5,20, TypRaty.STALA);
 
         // when
-        List<RataKredytu> ratyKredytu = kalkulator.calculate(formularz);
+        List<RataKredytu> ratyKredytu = kalkulator.calculate(daneDoWyliczeniaRaty);
 
         // then
         assertEquals(10, ratyKredytu.size());
@@ -41,10 +41,10 @@ public class RataStalaTest {
     @Test
     public void kwota1000IloscRat10Oprocentowanie5OplataStala0TypRatyStala() throws Exception {
         // given
-        Formularz formularz = new Formularz(1000,10,5,0,TypRaty.STALA);
+        DaneDoWyliczeniaRaty daneDoWyliczeniaRaty = new DaneDoWyliczeniaRaty(1000,10,5,0,TypRaty.STALA);
 
         // when
-        List<RataKredytu> ratyKredytu = kalkulator.calculate(formularz);
+        List<RataKredytu> ratyKredytu = kalkulator.calculate(daneDoWyliczeniaRaty);
 
         // then
         assertEquals(10, ratyKredytu.size());

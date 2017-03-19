@@ -1,5 +1,5 @@
 import org.junit.Test;
-import pl.pjwstk.creditcalculator.core.Formularz;
+import pl.pjwstk.creditcalculator.core.DaneDoWyliczeniaRaty;
 import pl.pjwstk.creditcalculator.core.Kalkulator;
 import pl.pjwstk.creditcalculator.core.RataKredytu;
 import pl.pjwstk.creditcalculator.core.TypRaty;
@@ -15,10 +15,10 @@ public class RataMalejacaTest {
     @Test
     public void kwota100000IloscRat144Oprocentowanie35OplataStala0TypRatyMalejaca() throws Exception {
         // given
-        Formularz formularz = new Formularz(100000,144,3.5,0,TypRaty.MALEJACA);
+        DaneDoWyliczeniaRaty daneDoWyliczeniaRaty = new DaneDoWyliczeniaRaty(100000,144,3.5,0,TypRaty.MALEJACA);
 
         // when
-        List<RataKredytu> ratyKredytu = kalkulator.calculate(formularz);
+        List<RataKredytu> ratyKredytu = kalkulator.calculate(daneDoWyliczeniaRaty);
 
         // then
         assertEquals(144, ratyKredytu.size());
@@ -48,10 +48,10 @@ public class RataMalejacaTest {
     @Test
     public void kwota100000IloscRat144Oprocentowanie35OplataStala150TypRatyMalejaca() throws Exception {
         // given
-        Formularz formularz = new Formularz(100000,144,3.5,150, TypRaty.MALEJACA);
+        DaneDoWyliczeniaRaty daneDoWyliczeniaRaty = new DaneDoWyliczeniaRaty(100000,144,3.5,150, TypRaty.MALEJACA);
 
         // when
-        List<RataKredytu> ratyKredytu = kalkulator.calculate(formularz);
+        List<RataKredytu> ratyKredytu = kalkulator.calculate(daneDoWyliczeniaRaty);
 
         // then
         assertEquals(144, ratyKredytu.size());
